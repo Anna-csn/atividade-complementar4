@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Complementar 4</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    //Objeto Médico
+    function Medico(nome, especialidade, crm) {
+        this.nome = nome;
+        this.especialidade = especialidade;
+        this.crm = crm;
+        this.paciente = [];
+
+        //Método para adicionar um novo paciente
+        this.adicionarPaciente = function (paciente) {
+            this.paciente.push(paciente);
+            console.log('Paciente adicionado com sucesso!');
+        };
+
+
+        // Método para exibir todos os pacientes do médico
+        this.exibirPacientes = function () {
+            console.log(`Pacientes da Dra. ${this.nome} ${this.especialidade}(${this.crm}):`);
+            this.paciente.forEach(paciente => {
+                paciente.detalhesPaciente();
+            });
+        };
+    }
+
+
+    //Objeto Paciente
+    function Paciente(nome, idade, sintomas) {
+        this.nome = nome || '';
+        this.idade = idade || '';
+        this.sintomas = sintomas || '';
+
+        this.detalhesPaciente = function () {
+            console.log(`Nome: ${this.nome}\nIdade: ${this.idade}\n Sintomas: ${this.sintomas}`);
+        };
+    }
+
+
+    let medico1 = new Medico('Cecilia\n', 'Cardiologista\n', 'CRM: 0000-00');
+
+
+
+
+    // Criando um paciente
+    let nome = prompt("Informe o nome do paciente:");
+    let idade = prompt("Informe a idade do paciente:")
+    let sintomas = prompt("Informe os sintomas do paciente:")
+
+    // Criando o objeto Paciente
+    let paciente = new Paciente(nome, idade, sintomas);
+
+
+    medico1.adicionarPaciente(paciente);
+    medico1.exibirPacientes(paciente);
+
+
+
+
+
+
+
+</script>
